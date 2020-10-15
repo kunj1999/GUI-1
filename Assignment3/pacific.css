@@ -1,0 +1,129 @@
+/*
+    File: pacific.css
+    COMP 4610 Assignment: Style a site with External CSS
+    Kunj Patel, UMass Lowell Computer Science, kunj_patel@student.uml.edu
+    Copyright (c) 2020 by Kunj Patel. All rights reserved. May be freely copied
+    or excerpted for educational purposes with credit to the author.
+    updated by Kunj on 9/29/2020 at 6:00 pm
+
+    This will add styles to Pacific Trail Resort website
+*/
+
+/*Global variables for padding and margin to keep everything consistent*/
+:root {
+	--content-padding: 30px;
+	--content-margin: 185px;
+}
+
+header, hgroup, nav, footer, figure, figcaption, aside, section, article {
+	display: block;
+}
+
+/* This will show the gradient background*/
+body {
+	background-color: #00569f;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	background-image: url("ptrbackground.jpg");
+	background-repeat: repeat-x;
+}
+
+nav ul {
+	font-size: 1.2em;
+	list-style-type: none;
+}
+
+/* Navigation button change color after visiting it*/
+nav a:visited {
+	color: #344873;
+}
+
+/* Navigation menu button will change to white color when hovering over*/
+nav a:hover {
+	color: #FFFFFF;
+}
+h1 {
+	margin-bottom: 0;
+	padding: 10px;
+	color: white;
+}
+h2 {
+	color: #3399CC;
+}
+h1,
+h2 {
+	font-family: Georgia, "Times New Roman", serif;
+}
+#contact {
+	font-size: 90%;
+}
+dt {
+	color: #000033;
+}
+
+/* Aligns the footer with the same padding and margin as the rest of the content*/
+footer {
+	font-family: Georgia, "Times New Roman", serif;
+	margin-left: var(--content-margin);
+	padding-left: var(--content-padding);
+	background-color: white;
+	background-size: cover;
+}
+
+/* Adds background to the top header*/
+header {
+	background-color: #000032;
+	color: #666666;
+	background-image: url("sunset.jpg");
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+/* Styles navigation text*/
+nav a {
+	text-decoration: none;
+    font-weight: bold;
+	color: #000032;
+}
+
+/* Aligns the navigation bar to the left*/
+nav {
+	float: left;
+	width: 185px;
+}
+
+/* special styling for the resort name in the content area*/
+.resort {
+	color: #00569f;
+	font-weight: bold;
+}
+
+/* Styles the content area of the page. It will align it to the right of the navigation bar by using margin and padding property*/
+#content {
+	padding-top: 1px;
+	padding-left: var(--content-padding);
+	margin-left: var(--content-margin);
+	padding-right: var(--content-padding);
+	background-color: white;
+	background-size: cover;
+}
+
+/* Adds special bullet for the unordered list in the content area*/
+#content li {
+	list-style: url(marker.gif);
+	list-style-position: inside;
+}
+
+/* Resort image align to the left in the content section*/
+#content img {
+	float: left;
+	margin-right: 30px;
+}
+
+/* Defines the "main" area of the page */
+#wrapper {
+	background-color: #38b4d0;
+	width: 80%;
+	min-width: 600px;
+	margin: auto;
+}
