@@ -1,0 +1,33 @@
+.blankBox form {
+    position: relative;
+    padding-top: 1%;
+    padding-left: 2%;
+}
+.blankBox {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.0);
+    width: 100%;
+    height: cover;
+}
+
+.blankBox input {
+    display: relative;
+    padding: 1%;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.blankBox label {
+    width: 200px;
+    text-align: right;
+}
+
+.blankBox input[type=submit] {
+    width: 406px;
+    max-width: 100%;
+    background-color: #365a71;
+}
+
+.blankBox span {
+    color: red;
+}
