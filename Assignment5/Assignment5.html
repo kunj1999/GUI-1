@@ -4,22 +4,22 @@
     Kunj Patel, UMass Lowell Computer Science, kunj_patel@student.uml.edu
     Copyright (c) 2020 by Kunj Patel. All rights reserved. May be freely copied
     or excerpted for educational purposes with credit to the author.
-    created by Kunj on 9/6/2020
-    updated by Kunj on 10/14/2020 at 1:00 pm
+    created by Kunj on 10/25/2020
+    updated by Kunj on 10/28/2020 at 8:00 pm
 
-    This will create multiplication table based on user input
+    This will create page that will display multiplication table based on user input
 -->
 
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
         <title>Kunj Patel</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="Assignment5.css"
+        <link rel="stylesheet" href="Assignment5.css">
 
     </head>
 
@@ -58,6 +58,7 @@
             <!-- I used the inline css to add minimum height because I want to inherit some design from my home webpage -->
             <div class="box clear col-lg-10" style="min-height: 805px">
 
+                <!-- Transparent box containing user input box -->
                 <div class="blankBox">
 
                     <!-- I used https://www.youtube.com/watch?v=jDfrY2UUSrc for keeping text in field when hitting submit -->
@@ -95,8 +96,28 @@
                          <input type="submit" value="Submit" onclick="validateForm()">
                      </form>
                 </div>
+
+                <!-- Box containing the table -->
+                <div class="blankBox">
+
+
+                    <div class="responsive center">
+                        <table id="displayTable" class="center">
+
+                            <!-- JavaScript will fill this area dynamically based on user input -->
+
+                        </table>
+                    </div>
+
+                </div>
+
             </div>
         </div>
+
+        <!--Copyright information -->
+        <p class="text-center">
+            Copyright (c) 2020 by Kunj Patel. All rights reserved.
+        </p>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

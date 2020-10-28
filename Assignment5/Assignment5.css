@@ -1,15 +1,30 @@
+/*
+    File: Assignment5/Assignment5.css
+    COMP 4610 Assignment: Creating an Interactive Dynamic Table
+    Kunj Patel, UMass Lowell Computer Science, kunj_patel@student.uml.edu
+    Copyright (c) 2020 by Kunj Patel. All rights reserved. May be freely copied
+    or excerpted for educational purposes with credit to the author.
+    created by Kunj on 10/25/2020
+    updated by Kunj on 10/28/2020 at 8:00 pm
+
+    This will add style to the multiplication table page
+*/
+
+/* Adds general style to the form */
 .blankBox form {
     position: relative;
     padding-top: 1%;
     padding-left: 2%;
 }
+
+/* Creates Transparent box that will be used to contain form and the table */
 .blankBox {
     position: relative;
     background-color: rgba(0, 0, 0, 0.0);
     width: 100%;
-    height: cover;
 }
 
+/* Adds to style to input boxes and the submit button */
 .blankBox input {
     display: relative;
     padding: 1%;
@@ -17,17 +32,76 @@
     border-radius: 5px;
 }
 
+/* Styles text located left of the input box */
 .blankBox label {
     width: 200px;
     text-align: right;
 }
 
+/* Adds size and color parameters for the submit button */
 .blankBox input[type=submit] {
     width: 406px;
     max-width: 100%;
     background-color: #365a71;
 }
 
+/* This will change the color of the error message to red to convey warning */
 .blankBox span {
     color: red;
+}
+
+/* Centers an element */
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Adds style to horizontal column on the table*/
+/* minimum width was derived by looking at how big of a space the largest number(2500) needs */
+/* Position is set to sticky so that it wouldn't disappear when user scrolls down */
+th {
+    text-align: center;
+    position: sticky;
+    top: 0;
+    min-width: 68px;
+    background: black;
+    padding: 15px;
+    color: white;
+    border: 1px solid gray;
+}
+
+/* Adds styles to all the other cells on the table*/
+td {
+    text-align: center;
+    min-width: 68px;
+    padding: 15px;
+    color: black;
+    border: 1px solid gray;
+}
+
+/* This will ensure that the first row doesn't disappear when the user scrolls right */
+td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    color: white;
+    background: black;
+}
+
+/* Next two styles will add color to the table for better Readability */
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background: white;
+}
+
+/* This will make the entire table responsive */
+/* If the table require more space than what is allocated, user will able to scroll around */
+.responsive {
+    margin-top: 3%;
+    max-width: 80%;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
 }
