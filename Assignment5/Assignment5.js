@@ -16,7 +16,7 @@ const MINVERTICLE = -50;
 const MAXVERTICLE = 50;
 
 // Standard error when user types value that is out of bounds described above
-const OUTOFBOUNDERROR = "Please Enter a value between -50 and 50";
+const OUTOFBOUNDERROR = "Please Enter a integer between -50 and 50";
 
 
 function validateForm() {
