@@ -1,13 +1,13 @@
 <!--
-    File: Assignment5/Assignment5.html
-    COMP 4610 Assignment: Creating an Interactive Dynamic Table
+    File: Assignment6/Assignment6.html
+    COMP 4610 Assignment: Using the jQuery Validation Plugin with Your Dynamic Table
     Kunj Patel, UMass Lowell Computer Science, kunj_patel@student.uml.edu
     Copyright (c) 2020 by Kunj Patel. All rights reserved. May be freely copied
     or excerpted for educational purposes with credit to the author.
-    created by Kunj on 10/25/2020
-    updated by Kunj on 10/28/2020 at 8:00 pm
+    created by Kunj on 11/7/2020
+    updated by Kunj on 11/11/2020 at 8:00 pm
 
-    This will create page that will display multiplication table based on user input
+    This will create page that will display multiplication table based on user input (jQuery added)
 -->
 
 <!DOCTYPE html>
@@ -19,8 +19,7 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="Assignment5.css">
-
+        <link rel="stylesheet" href="Assignment6.css">
     </head>
 
     <body>
@@ -44,8 +43,8 @@
                         <li class="dropdown-item"><a href="http://cs.uml.edu/~kvpatel" target="_blank">Hw 2</a></li>
                         <li class="dropdown-item"><a href="../Assignment3/index.html">Hw 3</a></li>
                         <li class="dropdown-item disabled"><a href="#index">Hw 4</a></li>
-                        <li class="dropdown-item"><a href="Assignment5.html">Hw 5</a></li>
-                        <li class="dropdown-item"><a href="../Assignment6/Assignment6.html">Hw 6</a></li>
+                        <li class="dropdown-item"><a href="../Assignment5/Assignment5.html">Hw 5</a></li>
+                        <li class="dropdown-item"><a href="Assignment6.html">Hw 6</a></li>
                         <li class="dropdown-item disabled"><a href="#index">Hw 7</a></li>
                         <li class="dropdown-item disabled"><a href="#index">Hw 8</a></li>
 
@@ -62,38 +61,38 @@
                 <div class="blankBox">
 
                     <!-- I used https://www.youtube.com/watch?v=jDfrY2UUSrc for keeping text in field when hitting submit -->
-                     <form name="inputForm" onsubmit="return false">
+                     <form  id="inputForm" name="inputForm" onsubmit="return false">
 
                          <!-- Minimum column value -->
                          <div>
                              <label>Minimum column value: </label>
-                             <input type="number" id="min-horizontal" name="min-horizontal" >
-                             <span id="min-horizontal-error"></span>
+                             <input type="number" id="minhorizontal" name="minhorizontal" >
+                             <span id="minhorizontalerror"></span>
                          </div>
 
                          <!-- Maximum column value -->
                          <div>
                              <label>Maximum column value: </label>
-                             <input type="number" id="max-horizontal" name="max-horizontal" >
-                             <span id="max-horizontal-error"></span>
+                             <input type="number" id="maxhorizontal" name="maxhorizontal" >
+                             <span id="maxhorizontalerror"></span>
                          </div>
 
                          <!-- Minimum row value -->
                          <div>
                              <label>Minimum row value: </label>
-                             <input type="number" id="min-verticle" name="min-verticle" >
-                             <span id="min-verticle-error"></span>
+                             <input type="number" id="minverticle" name="minverticle" >
+                             <span id="minverticleerror"></span>
                          </div>
 
                          <!-- Maximum row value -->
                          <div>
                              <label>maximum row value: </label>
-                             <input type="number" id="max-verticle" name="max-verticle" >
-                             <span id="max-verticle-error"></span>
+                             <input type="number" id="maxverticle" name="maxverticle" >
+                             <span id="maxverticleerror"></span>
                          </div>
 
                          <!-- submit Button -->
-                         <input type="submit" value="Submit" onclick="validateForm()">
+                         <input type="submit" value="Submit">
                      </form>
                 </div>
 
@@ -119,8 +118,20 @@
             Copyright (c) 2020 by Kunj Patel. All rights reserved.
         </p>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
+
+        <script src="Assignment6.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="Assignment5.js"></script>
+
+        <script>
+            // When the document is ready start running jquery code
+            $( document ).ready(function() {
+                validateForm();
+            });
+        </script>
+
     </body>
