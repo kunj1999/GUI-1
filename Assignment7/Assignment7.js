@@ -155,6 +155,12 @@ function deleteAllTabs() {
 }
 
 function newTab() {
+    // If the input parameters on the form are not legal, we don't create a new tab
+    if (!$("#inputForm").valid()) {
+        alert("Please fix one or more input parameters before creating new tab!");
+        return 0;
+    }
+
     // Get the element containing the list of tabs
     var ul = document.getElementById("Tablist");
 
