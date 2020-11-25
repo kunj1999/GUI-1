@@ -3,8 +3,8 @@
 // Kunj Patel, UMass Lowell Computer Science, kunj_patel@student.uml.edu
 // Copyright (c) 2020 by Kunj Patel. All rights reserved. May be freely copied
 // or excerpted for educational purposes with credit to the author.
-// created by Kunj on 11/7/2020
-// updated by Kunj on 11/11/2020 at 8:00 pm
+// created by Kunj on 11/17/2020
+// updated by Kunj on 11/24/2020 at 8:00 pm
 //
 // This will create page that will display multiplication table based on slider input
 // It will also allow the user to save the multiplication table
@@ -20,9 +20,10 @@ const OUTOFBOUNDERROR = "Please Enter a integer between -50 and 50";
 
 var numberOfTabs = 1;
 var currentTab = "Tab1";
-var removeIcon = "<span class='ui-icon ui-icon-close ui-closable-tab'></span>"
 
-var removeCheckbox = "<input type='checkbox'>"
+// Code to add checkbox and closing icon to every tab
+var removeIcon = "<span class='ui-icon ui-icon-close ui-closable-tab'></span>";
+var removeCheckbox = "<input type='checkbox'>";
 
 // slider configuration. min and max range and input box element passed as arguments
 function sliderConfig(minP, maxP, TextBoxElement) {
@@ -30,13 +31,13 @@ function sliderConfig(minP, maxP, TextBoxElement) {
     // configuration for the slider
     var retVal = {min: minP, max: maxP, step: 1,
                 slide: function(event, ui) {
-                    $("#"+TextBoxElement).val(ui.value);
+                    $("#"+TextBoxElement).val(ui.value); // updates input box based on slider position
                     $("#inputForm").submit();
                 }};
     return retVal;
 }
 
-// This function will be called when the webpage loaded
+// This function will be called when the webpage is loaded
 function documentReady() {
 
     validateForm();
@@ -69,14 +70,18 @@ function documentReady() {
         $("#inputForm").submit();
     });
 
-    // We generate new tab with whatever the current parameters are
+    // We generate new Table with whatever the current parameters are
     // This will convey to the viewer that website is working properly
     $("#inputForm").submit();
+
+    // Bind the current tab's closing icon to a function callback
     close_tab();
 }
 
 // Set currentTab as active
 function set_current_tab_active() {
+    // I found the following trick to set active tab at the link below
+    // https://stackoverflow.com/questions/21860658/how-to-set-active-tab-in-jquery-ui
     $("a[href='#" + currentTab + "']").click();
 }
 
@@ -120,6 +125,7 @@ function close_tab() {
     });
 }
 
+// Delete tabs that have checkbox checked
 function deleteSelectedTabs() {
     // Iterate through all of the tab elements
     $('#Tablist > li').each(function () {
@@ -138,6 +144,16 @@ function deleteSelectedTabs() {
     }
 }
 
+// Delete all the tabs
+function deleteAllTabs() {
+    // Iterate through all of the tab elements and delete them
+    $('#Tablist > li').each(function () {
+        var liElement = $(this)[0];
+        $(liElement.children[0].hash).remove();
+        liElement.remove();
+    });
+}
+
 function newTab() {
     // Get the element containing the list of tabs
     var ul = document.getElementById("Tablist");
@@ -146,12 +162,15 @@ function newTab() {
     numberOfTabs++;
     currentTab = "Tab" + numberOfTabs.toString();
 
-    // contruct new tab
+    // contruct new tab html text
     var newTab = "<li><a href='#"+ currentTab + "'>" + currentTab + "</a>" + removeIcon + removeCheckbox + "</li>";
 
     // Append new tab to the list
     ul.innerHTML += newTab;
+
+    // Bind the current tab's closing icon to a function callback
     close_tab();
+
     // Construct body of the current tab and link it appropriatly
     var div = document.getElementById("tabBody");
     var newDiv = "<div id='" + currentTab + "'></div>";
@@ -165,11 +184,10 @@ function newTab() {
     // Sumbit the form such that new tab will open with multiplication table
     $("#inputForm").submit();
 
-    // Deselect all tabs. This fixed a problem of having multiple tabs selected
+    // Deselect all tabs. This fixed a problem I was having where multiple tabs selected
     $(".ui-tabs-active").removeClass("ui-state-active").removeClass("ui-tabs-active");
 
-    // I found the following trick to set active tab at the link below
-    // https://stackoverflow.com/questions/21860658/how-to-set-active-tab-in-jquery-ui
+    // Set the current tab active and refresh all the tabs
     set_current_tab_active();
     $("#myTabs").tabs("refresh");
 }
@@ -265,15 +283,19 @@ function generateTable() {
     texthtml = displayColumn(minH, maxH);
     texthtml += multiplicationTable(minH, maxH, minV, maxV);
 
-    // Push html table text to current div for current tab
-    document.getElementById(currentTab).innerHTML = texthtml;
+    // We only display table if there exists at least one tab
+    if (!check_for_empty()) {
 
-    // Update the title of the tab to accuratly represent the table it holds
-    $("a[href='#" + currentTab + "']")[0].innerHTML =
-        minH.toString() + "*" + maxH.toString() + " by " + minV.toString() + "*" + maxV.toString();
+        // Push html table text to current div for current tab
+        document.getElementById(currentTab).innerHTML = texthtml;
 
-    //If the user is on the some other tab, we switch it to current if he/she moves slider or changes input value
-    set_current_tab_active();
+        // Update the title of the tab to accuratly represent the table it holds
+        $("a[href='#" + currentTab + "']")[0].innerHTML =
+            minH.toString() + "*" + maxH.toString() + " by " + minV.toString() + "*" + maxV.toString();
+
+        //If the user is on some other tab, we switch it to current if he/she moves slider or changes input value
+        set_current_tab_active();
+    }
     return 0;
 }
 

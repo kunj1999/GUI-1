@@ -5,10 +5,10 @@
     Copyright (c) 2020 by Kunj Patel. All rights reserved. May be freely copied
     or excerpted for educational purposes with credit to the author.
     created by Kunj on 11/17/2020
-    updated by Kunj on 11/17/2020 at 8:00 pm
+    updated by Kunj on 11/24/2020 at 8:00 pm
 
     This will create page that will display multiplication table based on slider input
-    It will also allow the user to save the multiplication table
+    It will also allow the user to save the multiplication table in tab
 -->
 
 <!DOCTYPE html>
@@ -99,6 +99,7 @@
                          <!-- submit Button -->
                          <input type="button" onclick="newTab()" value="New Tab">
                          <input type="button" onclick="deleteSelectedTabs()" value="delete selected tabs">
+                         <input type="button" onclick="deleteAllTabs()" value="delete all tabs">
                      </form>
                 </div>
 
@@ -119,12 +120,9 @@
                             <div id="tabBody">
                                 <div id="Tab1"></div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
 

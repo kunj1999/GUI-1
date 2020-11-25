@@ -4,8 +4,8 @@
     Kunj Patel, UMass Lowell Computer Science, kunj_patel@student.uml.edu
     Copyright (c) 2020 by Kunj Patel. All rights reserved. May be freely copied
     or excerpted for educational purposes with credit to the author.
-    created by Kunj on 11/7/2020
-    updated by Kunj on 11/11/2020 at 8:00 pm
+    created by Kunj on 11/17/2020
+    updated by Kunj on 11/22/2020 at 8:00 pm
 
     This will add style to Assignment7.html page
 */
@@ -48,6 +48,7 @@
     font-weight: bold;
 }
 
+/* style for checkbox located in each tab*/
 .blankBox input[type=checkbox] {
     width: cover;
     margin: 0px;
@@ -115,12 +116,14 @@ tr:nth-child(odd) {
     overflow-x: auto;
 }
 
+/* style to make tabs and their content look clean */
 .tabWindow {
     margin-top: 3%;
     margin-left: 5%;
     margin-right: 5%;
 }
 
+/* style for slider */
 #minHorz, #maxHorz, #minVert, #maxVert {
     width: 500px;
     margin: 1%;
