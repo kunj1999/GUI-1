@@ -13,7 +13,7 @@ export default class About extends React.Component {
                         <div className="col-sm-12 col-md-8 text-center">
                             <SectionHeading heading={"About"}/>
                             <p>
-                                Hello! My name is Kunj Patel. I have bachelor's in Computer Science from Univeristy of Massachusetts Lowell. I am passionate about web development, Robotics and Cloud technology. Check out my github repository for current and past projects.
+                                Hello! My name is Kunj Patel. I have bachelor's in Computer Science from the University of Massachusetts Lowell. I am passionate about web development, Robotics and Cloud technology. Check out my github repository for current and past projects.
                             </p>
 
                             <SectionHeading heading={"Skills"}/>

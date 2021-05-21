@@ -20,7 +20,7 @@ body {
     border-bottom: 0.18rem solid rgb(255,255,255,0);
 }
 
-.nav-item > a:hover, .nav-item > a.active, .nav-item > a.active:focus {
+.nav-item > a:hover {
     border-bottom: 0.18rem solid white;
 }
 
